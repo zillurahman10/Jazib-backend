@@ -121,7 +121,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "jazib-backend.onrender.com",
+    # Add other hosts as needed
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://jazib-backend.onrender.com",
+    # Add other trusted origins here if necessary
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
