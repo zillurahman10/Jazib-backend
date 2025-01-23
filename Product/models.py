@@ -6,11 +6,19 @@ class Sizes(models.Model):
 
     def __str__(self):
         return self.size
+    
+class Category(models.Model):
+    name = models.CharField(max_length=50)  
+    slug = models.SlugField(max_length=100, unique=True, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.CharField(max_length=200, null=True)
     size = models.ManyToManyField(Sizes, blank=True)
     product_code = models.CharField(max_length=30, null=True)
