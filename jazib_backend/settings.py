@@ -128,9 +128,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 ALLOWED_HOSTS = [
-    "jazib-backend.onrender.com",
-    "127.0.0.1",
-    # Add other hosts as needed
+    "*"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
