@@ -8,5 +8,6 @@ router.register('customers', views.CustomerViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('register/', views.RegistrationViewset.as_view(), name='register')
+    path('register/', views.RegistrationViewset.as_view(), name='register'),
+    path('activate/<uid64>/<token>/', views.activate, name="activate")
 ]

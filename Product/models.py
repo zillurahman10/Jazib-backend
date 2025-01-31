@@ -13,13 +13,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+    
 
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    image = models.CharField(max_length=200, null=True)
     size = models.ManyToManyField(Sizes, blank=True)
     product_code = models.CharField(max_length=30, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -30,4 +30,10 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+    image_url = models.CharField(max_length=500)
+
+    def __str__(self):
+        return f"Image for {self.product.name}"
 
